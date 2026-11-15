@@ -16,10 +16,10 @@ MARQUE_HTML = 'Premier<span>Résultat</span>'
 SITE_URL = "https://premierresultat.fr"   # domaine à réserver
 VILLE = "Marseille"
 CONTACT = {
-    "telephone": "",     # ex. "06 12 34 56 78"
-    "whatsapp": "",      # ex. "33612345678"
-    "email": "",         # adresse qui reçoit les demandes
-    "rendezvous": "",    # lien d'agenda en ligne
+    "telephone": "06 99 30 58 73",
+    "whatsapp": "33699305873",
+    "email": "sihem.kazitani13@gmail.com",
+    "rendezvous": "",    # lien d'agenda en ligne (vide = bouton masqué)
 }
 PRIX_SITE = 500
 NB_FOIS = 5
@@ -96,7 +96,10 @@ def pied():
   </div>
 </footer>'''
 
+RDV_HTML = ('        <a class="moyen" href="' + CONTACT['rendezvous'] + '"><span class="ic" aria-hidden="true">▣</span><span><b>Réserver un appel de 15 minutes</b><small>Choisissez votre créneau</small></span></a>') if CONTACT['rendezvous'] else ''
+
 def bloc_contact(titre="Parlons de votre site", texte="Réponse sous 24 h ouvrées. Le premier échange est gratuit et ne vous engage à rien.", activite=""):
+    rdv = RDV_HTML
     return f'''<section class="sec nuit contact" id="contact" aria-labelledby="contact-h2">
   <div class="c">
     <p class="sur">Contact</p>
@@ -104,10 +107,9 @@ def bloc_contact(titre="Parlons de votre site", texte="Réponse sous 24 h ouvré
     <p class="chapo">{texte}</p>
     <div class="g">
       <div class="moyens">
-        <a class="moyen" data-lien="telephone" href="contact.html"><span class="ic" aria-hidden="true">☎</span><span><b>Appeler</b><small data-texte="telephone">Du lundi au vendredi</small></span></a>
-        <a class="moyen" data-lien="whatsapp" href="contact.html"><span class="ic" aria-hidden="true">✆</span><span><b>Écrire sur WhatsApp</b><small>Réponse dans la journée</small></span></a>
-        <a class="moyen" data-lien="rendezvous" href="contact.html"><span class="ic" aria-hidden="true">▣</span><span><b>Réserver un appel de 15 minutes</b><small>Choisissez votre créneau</small></span></a>
-      </div>
+        <a class="moyen" data-lien="telephone" href="tel:+33699305873"><span class="ic" aria-hidden="true">☎</span><span><b>Appeler</b><small>06 99 30 58 73</small></span></a>
+        <a class="moyen" data-lien="whatsapp" href="https://wa.me/33699305873"><span class="ic" aria-hidden="true">✆</span><span><b>Écrire sur WhatsApp</b><small>Réponse dans la journée</small></span></a>
+{rdv}      </div>
       <form class="f" data-formulaire>
         <label>Votre nom<input name="nom" autocomplete="name" required></label>
         <label>Votre activité et votre ville<input name="activite" value="{activite}" placeholder="Ex. : plombier à Marseille" required></label>
@@ -161,7 +163,7 @@ def page(chemin, titre, description, corps, schemas=(), og_type="website"):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400..600&family=Archivo:wdth,wght@100..125,400..800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=4">
+<link rel="stylesheet" href="assets/site.css?v=5">
 {ld(graph)}
 </head>
 <body>
@@ -604,18 +606,23 @@ def legal(chemin, titre, h1, blocs):
     return page(chemin, f"{titre} | {MARQUE}", f"{titre} du site {MARQUE}.", corps, [schema_fil((chemin, h1))])
 
 MENTIONS = [
-    ("Éditeur du site", ["[Nom de l'entreprise, forme juridique, capital] — [adresse] — SIRET [à compléter] — [e-mail]."]),
-    ("Directeur de la publication", ["[Nom et prénom]."]),
-    ("Hébergement", ["GitHub Pages, GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis."]),
-    ("Propriété intellectuelle", ["Les textes, visuels et éléments graphiques de ce site sont protégés. Toute reproduction sans autorisation est interdite."]),
-    ("Données personnelles", ['Voir la page <a href="confidentialite.html">Confidentialité</a>.']),
+    ("Éditeur du site", ["Le site Premier Résultat est édité par Arslane Kaouadji, entrepreneur individuel (micro-entreprise) immatriculé au Registre national des entreprises — SIREN 106 977 879 — SIRET 106 977 879 00019 — code APE 7021Z — siège : 4 C boulevard Latil, 13008 Marseille, France — téléphone : 06 99 30 58 73 — e-mail : sihem.kazitani13@gmail.com — TVA non applicable, article 293 B du Code général des impôts (franchise en base)."]),
+    ("Directrice de la publication", ["Sihem Kazi-Tani, joignable aux coordonnées ci-dessus."]),
+    ("Hébergement", ["GitHub Pages, GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis, github.com."]),
+    ("Activité", ["Premier Résultat accompagne les artisans, commerçants, indépendants et petites entreprises dans leur visibilité en ligne : conception et réalisation de sites internet, création et suivi de fiches d'établissement Google, référencement naturel et visibilité dans les moteurs de recherche à intelligence artificielle."]),
+    ("Propriété intellectuelle", ["L'ensemble du site (textes, structure, design, code) est protégé par le droit d'auteur. Toute reproduction, représentation ou adaptation, totale ou partielle, sans autorisation écrite est interdite. Les marques et noms cités appartiennent à leurs titulaires respectifs."]),
+    ("Responsabilité", ["Nous nous efforçons de maintenir des informations exactes et à jour, sans garantie d'exhaustivité. Les exemples de recherches et de questions présentés sont des illustrations de la méthode et ne constituent ni une promesse de résultat ni une garantie de positionnement dans un moteur de recherche ou une réponse d'intelligence artificielle. L'éditeur ne saurait être tenu responsable des dommages directs ou indirects résultant de l'accès au site ou de son utilisation."]),
+    ("Liens", ["Le site peut contenir des liens vers des sites tiers dont l'éditeur ne contrôle pas le contenu."]),
+    ("Données personnelles", ['Le traitement des données collectées via le site est décrit dans la <a href="confidentialite.html">politique de confidentialité</a>.']),
+    ("Droit applicable", ["Le site est soumis au droit français. Tout litige relatif à son utilisation relève des tribunaux compétents de Marseille, sous réserve des règles d'ordre public applicables aux consommateurs."]),
 ]
 CONFIDENTIALITE = [
-    ("Responsable du traitement", ["[Nom de l'entreprise] — [adresse] — [e-mail]."]),
+    ("Responsable du traitement", ["Arslane Kaouadji, entrepreneur individuel — SIRET 106 977 879 00019 — 4 C boulevard Latil, 13008 Marseille — sihem.kazitani13@gmail.com."]),
     ("Données collectées", ["Uniquement les informations que vous envoyez via le formulaire, WhatsApp, e-mail ou téléphone : nom, activité, ville, coordonnées et message."]),
-    ("Finalité", ["Vous recontacter et vous envoyer une proposition. Base légale : vos demandes de renseignement (mesures précontractuelles)."]),
+    ("Finalité et base légale", ["Vous recontacter et vous envoyer une proposition. Base légale : les mesures précontractuelles prises à votre demande."]),
+    ("Destinataires", ["Les données ne sont ni vendues ni cédées. Elles transitent par les services utilisés pour vous répondre (messagerie électronique, WhatsApp)."]),
     ("Durée de conservation", ["3 ans après le dernier échange pour les prospects, puis suppression."]),
-    ("Vos droits", ["Accès, rectification, effacement, opposition et limitation, en écrivant à l'adresse ci-dessus. Vous pouvez saisir la CNIL (cnil.fr)."]),
+    ("Vos droits", ["Accès, rectification, effacement, opposition et limitation, en écrivant à sihem.kazitani13@gmail.com. Vous pouvez saisir la CNIL (cnil.fr)."]),
     ("Cookies", ["Ce site n'utilise aucun cookie de mesure d'audience ni de publicité. Les polices de caractères sont chargées depuis Google Fonts."]),
 ]
 
