@@ -45,10 +45,10 @@ ORGA = {
     "@id": SITE_URL + "/#entreprise",
     "name": MARQUE,
     "url": SITE_URL + "/",
-    "description": f"Création de sites internet pour artisans, commerçants et PME à {PRIX_SITE} € (jusqu'à {PAGES_MAX} pages, fiche Google comprise), puis référencement Google à {PRIX_SEO} € par mois.",
+    "description": f"Création de sites internet pour artisans, commerçants et PME à {PRIX_SITE} € HT (jusqu'à {PAGES_MAX} pages, fiche Google comprise), puis référencement Google à {PRIX_SEO} € HT par mois.",
     "areaServed": {"@type": "Country", "name": "France"},
     "address": {"@type": "PostalAddress", "addressLocality": VILLE, "addressCountry": "FR"},
-    "priceRange": f"{PRIX_SITE} €",
+    "priceRange": f"{PRIX_SITE} € HT",
     "knowsLanguage": "fr",
 }
 if CONTACT["telephone"]:
@@ -87,7 +87,7 @@ def pied():
   <div class="c">
     <div class="g">
       <div><a class="logo" href="index.html">{MARQUE_HTML}</a>
-        <p style="margin-top:12px;max-width:320px">Sites internet et référencement Google pour artisans, commerçants et PME. {PRIX_SITE}&nbsp;€ le site, payable en {NB_FOIS} fois.</p></div>
+        <p style="margin-top:12px;max-width:320px">Sites internet et référencement Google pour artisans, commerçants et PME. {PRIX_SITE}&nbsp;€&nbsp;HT le site, payable en {NB_FOIS} fois.</p></div>
       <div><h3>L'offre</h3><nav aria-label="L'offre"><a href="offre.html">Ce qui est compris</a><a href="visibilite-ia.html">Visibilité dans les IA</a><a href="tarifs.html">Tarifs</a><a href="metiers.html">Tous les métiers</a><a href="contact.html">Contact</a></nav></div>
       <div><h3>Métiers</h3><nav aria-label="Métiers">{metiers}</nav></div>
       <div><h3>Informations</h3><nav aria-label="Informations légales"><a href="mentions-legales.html">Mentions légales</a><a href="confidentialite.html">Confidentialité</a></nav></div>
@@ -163,7 +163,7 @@ def page(chemin, titre, description, corps, schemas=(), og_type="website"):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400..600&family=Archivo:wdth,wght@100..125,400..800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=5">
+<link rel="stylesheet" href="assets/site.css?v=6">
 {ld(graph)}
 </head>
 <body>
@@ -261,9 +261,9 @@ ETAPES = [
 ]
 
 FAQ_GENERALE = [
-    ("Le site est-il vraiment à moi ?", f"Oui. Une fois les {PRIX_SITE} € réglés, le site et ses textes vous appartiennent. Vous pouvez le garder sans prendre le suivi mensuel."),
-    ("Comment se passe le paiement en plusieurs fois ?", f"Le site est réglé en {NB_FOIS} mensualités de {PRIX_SITE // NB_FOIS} €, sans frais. Le travail commence dès la première."),
-    ("Suis-je obligé de prendre le référencement ?", f"Non. Le site peut être commandé seul. Le suivi à {PRIX_SEO} € par mois est conseillé si vous voulez que de nouveaux clients vous trouvent sur Google."),
+    ("Le site est-il vraiment à moi ?", f"Oui. Une fois les {PRIX_SITE} € HT réglés, le site et ses textes vous appartiennent. Vous pouvez le garder sans prendre le suivi mensuel."),
+    ("Comment se passe le paiement en plusieurs fois ?", f"Le site est réglé en {NB_FOIS} mensualités de {PRIX_SITE // NB_FOIS} € HT, sans frais. Le travail commence dès la première."),
+    ("Suis-je obligé de prendre le référencement ?", f"Non. Le site peut être commandé seul. Le suivi à {PRIX_SEO} € HT par mois est conseillé si vous voulez que de nouveaux clients vous trouvent sur Google."),
     (f"Pourquoi un engagement de {ENGAGEMENT} mois pour le référencement ?", f"Google met plusieurs mois à prendre en compte le travail fait sur un site. En dessous de {ENGAGEMENT} mois, on ne peut pas juger du résultat."),
     ("Garantissez-vous la première place sur Google ?", "Non, et personne ne peut le garantir honnêtement. Ce qui est garanti, c'est le travail fait chaque mois et un compte rendu clair de vos positions."),
     ("Y a-t-il des frais en plus ?", "Seulement le nom de domaine (l'adresse de votre site), réservé à votre nom, qui coûte en général une dizaine d'euros par an. Tout autre frais éventuel est annoncé avant de commencer."),
@@ -275,9 +275,9 @@ FAQ_GENERALE = [
 def ticket():
     return f'''<aside class="ticket" aria-label="Résumé des prix">
   <p class="tt">L'offre en deux lignes</p>
-  <div class="l"><div>Site + fiche Google<small>jusqu'à {PAGES_MAX} pages · {NB_FOIS} × {PRIX_SITE // NB_FOIS} €</small></div><b>{PRIX_SITE} €</b></div>
-  <div class="l"><div>Référencement Google et IA<small>suivi mensuel · {ENGAGEMENT} mois minimum</small></div><b>{PRIX_SEO} €<i> /mois</i></b></div>
-  <small style="margin-top:8px">Prix annoncé avant de commencer, sans devis à rallonge.</small>
+  <div class="l"><div>Site + fiche Google<small>jusqu'à {PAGES_MAX} pages · {NB_FOIS} × {PRIX_SITE // NB_FOIS} € HT</small></div><b>{PRIX_SITE} €<i> HT</i></b></div>
+  <div class="l"><div>Référencement Google et IA<small>suivi mensuel · {ENGAGEMENT} mois minimum</small></div><b>{PRIX_SEO} €<i> HT/mois</i></b></div>
+  <small style="margin-top:8px">Prix fixes · TVA non applicable, art. 293 B du CGI.</small>
 </aside>'''
 
 def bloc_offres(alt=True):
@@ -290,10 +290,10 @@ def bloc_offres(alt=True):
     <p class="chapo">Vous savez ce que vous payez et ce que vous recevez avant de vous engager.</p>
     <div class="offres">
       <article class="offre"><span class="et">Étape 1</span><h3>Votre site et votre fiche Google</h3>
-        <p class="px">{PRIX_SITE} €</p><p class="mod">Payable en {NB_FOIS} fois : {NB_FOIS} × {PRIX_SITE // NB_FOIS} €, sans frais</p>
+        <p class="px">{PRIX_SITE} € HT</p><p class="mod">Payable en {NB_FOIS} fois : {NB_FOIS} × {PRIX_SITE // NB_FOIS} € HT, sans frais</p>
         <ul class="liste">{l1}</ul><a class="btn b2" href="contact.html">Je veux mon site</a></article>
       <article class="offre v"><span class="et">Étape 2</span><h3>Votre référencement Google et IA</h3>
-        <p class="px">{PRIX_SEO} € <small>/ mois</small></p><p class="mod">Engagement de {ENGAGEMENT} mois, le temps que Google réagisse</p>
+        <p class="px">{PRIX_SEO} € <small>HT / mois</small></p><p class="mod">Engagement de {ENGAGEMENT} mois, le temps que Google réagisse</p>
         <ul class="liste">{l2}</ul><a class="btn" href="contact.html">Je veux être trouvé</a></article>
     </div>
   </div>
@@ -345,8 +345,8 @@ def accueil():
   <div class="c g">
     <div>
       <p class="sur">Artisans, commerçants, indépendants, PME</p>
-      <h1>Création de site internet pour PME à {PRIX_SITE}&nbsp;€, fiche Google comprise</h1>
-      <p class="chapo">Un vrai site de {PAGES_MAX} pages maximum, rédigé et référencé, avec votre fiche Google créée et remplie. Payable en {NB_FOIS} fois. Ensuite, {PRIX_SEO}&nbsp;€ par mois pour monter dans les recherches de votre ville, sur Google et dans les IA comme ChatGPT.</p>
+      <h1>Création de site internet pour PME à {PRIX_SITE}&nbsp;€&nbsp;HT, fiche Google comprise</h1>
+      <p class="chapo">Un vrai site de {PAGES_MAX} pages maximum, rédigé et référencé, avec votre fiche Google créée et remplie. Payable en {NB_FOIS} fois. Ensuite, {PRIX_SEO}&nbsp;€&nbsp;HT par mois pour monter dans les recherches de votre ville, sur Google et dans les IA comme ChatGPT.</p>
       <div class="act"><a class="btn" href="contact.html">Demander mon site</a><a class="btn b2" href="offre.html">Voir ce qui est compris</a></div>
       <ul class="coches"><li>Prix fixe annoncé avant de commencer</li><li>Le site vous appartient</li><li>Pas de jargon</li></ul>
     </div>
@@ -385,8 +385,8 @@ def accueil():
         schema_faq(FAQ_GENERALE[:7]),
     ]
     return page("index.html",
-        f"Création de site internet PME à {PRIX_SITE} €, fiche Google comprise | {MARQUE}",
-        f"Site professionnel jusqu'à {PAGES_MAX} pages + fiche Google pour {PRIX_SITE} €, payable en {NB_FOIS} fois. Référencement à {PRIX_SEO} €/mois. Pour artisans, commerçants et PME.",
+        f"Création de site internet PME à {PRIX_SITE} € HT, fiche Google comprise | {MARQUE}",
+        f"Site professionnel jusqu'à {PAGES_MAX} pages + fiche Google pour {PRIX_SITE} € HT, payable en {NB_FOIS} fois. Référencement à {PRIX_SEO} € HT/mois. Pour artisans, commerçants et PME.",
         corps, schemas)
 
 def offre():
@@ -409,7 +409,7 @@ def offre():
     {fil(("", "Ce qui est compris"))}
     <p class="sur">Ce qui est compris</p>
     <h1>Un site complet et une fiche Google, pas une page vide</h1>
-    <p class="chapo">Pour {PRIX_SITE}&nbsp;€, vous avez tout ce dont une entreprise a besoin pour être trouvée et contactée. Voici le détail, sans astérisque.</p>
+    <p class="chapo">Pour {PRIX_SITE}&nbsp;€&nbsp;HT, vous avez tout ce dont une entreprise a besoin pour être trouvée et contactée. Voici le détail, sans astérisque.</p>
   </div>
 </section>
 {bloc_offres(alt=False)}
@@ -432,8 +432,8 @@ def offre():
 {bloc_faq(faq, alt=True)}
 {bloc_contact()}'''
     schemas = [schema_fil(("offre.html", "Ce qui est compris")), schema_faq(faq)]
-    return page("offre.html", f"Ce que comprend un site à {PRIX_SITE} € : {PAGES_MAX} pages et fiche Google | {MARQUE}",
-        f"Le détail de l'offre : site jusqu'à {PAGES_MAX} pages rédigé et référencé, fiche Google créée et remplie, Search Console, mentions légales. {PRIX_SITE} € en {NB_FOIS} fois.",
+    return page("offre.html", f"Ce que comprend un site à {PRIX_SITE} € HT : {PAGES_MAX} pages et fiche Google | {MARQUE}",
+        f"Le détail de l'offre : site jusqu'à {PAGES_MAX} pages rédigé et référencé, fiche Google créée et remplie, Search Console, mentions légales. {PRIX_SITE} € HT en {NB_FOIS} fois.",
         corps, schemas)
 
 def tarifs():
@@ -442,7 +442,7 @@ def tarifs():
   <div class="c g">
     <div>{fil(("", "Tarifs"))}
       <p class="sur">Tarifs</p>
-      <h1>Site internet à {PRIX_SITE}&nbsp;€ en {NB_FOIS} fois, référencement à {PRIX_SEO}&nbsp;€ par mois</h1>
+      <h1>Site internet à {PRIX_SITE}&nbsp;€&nbsp;HT en {NB_FOIS} fois, référencement à {PRIX_SEO}&nbsp;€&nbsp;HT par mois</h1>
       <p class="chapo">Deux prix fixes, pour toutes les entreprises. Pas de devis à rallonge, pas d'options cachées.</p>
     </div>
     {ticket()}
@@ -453,7 +453,8 @@ def tarifs():
   <div class="c"><p class="sur">Pour comparer</p><h2 id="cmp-h2">Ce que coûte un site sur trois ans</h2>
   <div class="texte">
     <p>Un site d'entreprise se juge sur la durée, pas sur le prix de départ. Les formules « site en abonnement » affichent souvent une mensualité basse, mais le site ne vous appartient pas et la facture s'accumule tant que vous restez.</p>
-    <p>Chez nous, le site coûte {PRIX_SITE}&nbsp;€ une fois, et il est à vous. Le référencement à {PRIX_SEO}&nbsp;€ par mois est un travail réel (nouvelles pages, fiche Google, suivi), que vous pouvez arrêter après {ENGAGEMENT} mois si vous le souhaitez.</p>
+    <p>Tous nos prix sont indiqués hors taxe. TVA non applicable, article 293 B du Code général des impôts : le montant affiché est celui que vous payez.</p>
+    <p>Chez nous, le site coûte {PRIX_SITE}&nbsp;€&nbsp;HT une fois, et il est à vous. Le référencement à {PRIX_SEO}&nbsp;€&nbsp;HT par mois est un travail réel (nouvelles pages, fiche Google, suivi), que vous pouvez arrêter après {ENGAGEMENT} mois si vous le souhaitez.</p>
   </div></div>
 </section>
 {bloc_faq(faq)}
@@ -465,8 +466,8 @@ def tarifs():
     ]}
     schemas = [schema_fil(("tarifs.html", "Tarifs")), schema_faq(faq),
                {"@type": "Service", "name": "Création de site internet et référencement Google", "provider": {"@id": ORGA["@id"]}, "areaServed": "France", "hasOfferCatalog": offres}]
-    return page("tarifs.html", f"Tarifs : site internet {PRIX_SITE} € en {NB_FOIS} fois, SEO {PRIX_SEO} €/mois | {MARQUE}",
-        f"Site professionnel et fiche Google à {PRIX_SITE} €, payable en {NB_FOIS} × {PRIX_SITE // NB_FOIS} €. Référencement Google à {PRIX_SEO} € par mois, {ENGAGEMENT} mois minimum. Prix fixes.",
+    return page("tarifs.html", f"Tarifs : site internet {PRIX_SITE} € HT en {NB_FOIS} fois, SEO {PRIX_SEO} € HT/mois | {MARQUE}",
+        f"Site professionnel et fiche Google à {PRIX_SITE} € HT, payable en {NB_FOIS} × {PRIX_SITE // NB_FOIS} € HT. Référencement Google à {PRIX_SEO} € HT par mois, {ENGAGEMENT} mois minimum. Prix fixes.",
         corps, schemas)
 
 def hub_metiers():
@@ -497,7 +498,7 @@ def page_metier(m):
     points = "".join(f'<div class="carte"><h3>{t}</h3><p>{p}</p></div>' for t, p in m["points"])
     prix = m.get("prix_html") or f'''<section class="sec alt" aria-labelledby="px-h2">
   <div class="c"><p class="sur">Prix</p><h2 id="px-h2">{m["prix_titre"]}</h2>
-  <div class="texte"><p>Site jusqu'à {PAGES_MAX} pages et fiche Google : <strong>{PRIX_SITE}&nbsp;€</strong>, payable en {NB_FOIS} fois ({NB_FOIS} × {PRIX_SITE // NB_FOIS}&nbsp;€). Référencement mensuel : <strong>{PRIX_SEO}&nbsp;€ par mois</strong>, {ENGAGEMENT} mois minimum, facultatif. <a href="offre.html">Voir le détail de ce qui est compris</a>.</p></div></div>
+  <div class="texte"><p>Site jusqu'à {PAGES_MAX} pages et fiche Google : <strong>{PRIX_SITE}&nbsp;€&nbsp;HT</strong>, payable en {NB_FOIS} fois ({NB_FOIS} × {PRIX_SITE // NB_FOIS}&nbsp;€&nbsp;HT). Référencement mensuel : <strong>{PRIX_SEO}&nbsp;€&nbsp;HT par mois</strong>, {ENGAGEMENT} mois minimum, facultatif. <a href="offre.html">Voir le détail de ce qui est compris</a>.</p></div></div>
 </section>'''
     corps = f'''<section class="hero">
   <div class="c g">
@@ -552,7 +553,7 @@ def visibilite_ia():
         ("Qu'est-ce que le référencement dans les IA ?", "C'est le travail qui aide les assistants comme ChatGPT, Gemini, Perplexity ou le mode IA de Google à comprendre votre entreprise et à la proposer quand on leur pose une question sur votre métier. On parle aussi de GEO."),
         ("Est-ce différent du référencement Google ?", "C'est complémentaire. Les IA s'appuient en grande partie sur les mêmes sources que Google : votre site, votre fiche Google, vos avis, les annuaires. Un bon référencement Google est la base, auquel on ajoute ce que les IA attendent en plus."),
         ("Pouvez-vous garantir que ChatGPT me recommandera ?", "Non. Personne ne contrôle les réponses d'une IA, et elles varient d'une question à l'autre. Ce que nous garantissons, c'est le travail fait et un suivi honnête de ce que les IA disent de vous."),
-        ("Est-ce compris dans le prix ?", f"Oui. La préparation du site pour les IA est comprise dans le site à {PRIX_SITE} €. Le suivi mensuel des IA fait partie du référencement à {PRIX_SEO} € par mois."),
+        ("Est-ce compris dans le prix ?", f"Oui. La préparation du site pour les IA est comprise dans le site à {PRIX_SITE} € HT. Le suivi mensuel des IA fait partie du référencement à {PRIX_SEO} € HT par mois."),
         ("Les IA lisent-elles vraiment les petits sites ?", "Oui, quand elles cherchent des informations locales, elles consultent les sites et les fiches des entreprises. Encore faut-il que le site ne bloque pas leurs robots et que les informations soient claires."),
     ]
     corps = f'''<section class="hero">
@@ -596,7 +597,7 @@ def contact():
 </section>
 {bloc_contact(titre="Comment préférez-vous nous joindre ?")}
 {bloc_etapes(alt=True)}'''
-    return page("contact.html", f"Contact : demander votre site internet à {PRIX_SITE} € | {MARQUE}",
+    return page("contact.html", f"Contact : demander votre site internet à {PRIX_SITE} € HT | {MARQUE}",
         "Demandez votre site internet et votre fiche Google : appel, WhatsApp, formulaire ou rendez-vous. Échange de 15 minutes gratuit et sans engagement.",
         corps, [schema_fil(("contact.html", "Contact"))])
 
@@ -637,7 +638,7 @@ FAVICON = '''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect w
 
 def llms(pages_seo):
     lignes = [f"# {MARQUE}", "",
-        f"> Création de sites internet pour artisans, commerçants, indépendants et PME en France : site jusqu'à {PAGES_MAX} pages et fiche Google créée et remplie pour {PRIX_SITE} €, payable en {NB_FOIS} fois. Référencement Google et visibilité dans les IA (ChatGPT, Gemini, Perplexity) à {PRIX_SEO} € par mois, {ENGAGEMENT} mois minimum, facultatif.",
+        f"> Création de sites internet pour artisans, commerçants, indépendants et PME en France : site jusqu'à {PAGES_MAX} pages et fiche Google créée et remplie pour {PRIX_SITE} € HT, payable en {NB_FOIS} fois. Référencement Google et visibilité dans les IA (ChatGPT, Gemini, Perplexity) à {PRIX_SEO} € HT par mois, {ENGAGEMENT} mois minimum, facultatif.",
         "", "Le site appartient au client une fois réglé. Aucune promesse de première place sur Google. Seul frais en plus : le nom de domaine, à son nom.", "", "## Pages", ""]
     for chemin, titre, desc in pages_seo:
         lignes.append(f"- [{titre}]({url(chemin)}) : {desc}")
@@ -679,9 +680,9 @@ def main():
     (OUT / "robots.txt").write_text("\n".join(robots) + "\n", encoding="utf-8")
 
     pages_seo = [
-        ("index.html", "Accueil", f"l'offre site à {PRIX_SITE} € + référencement à {PRIX_SEO} €/mois, le B.A.-BA d'un site d'entreprise"),
+        ("index.html", "Accueil", f"l'offre site à {PRIX_SITE} € HT + référencement à {PRIX_SEO} € HT/mois, le B.A.-BA d'un site d'entreprise"),
         ("offre.html", "Ce qui est compris", f"détail du site jusqu'à {PAGES_MAX} pages, de la fiche Google et du suivi mensuel"),
-        ("tarifs.html", "Tarifs", f"{PRIX_SITE} € en {NB_FOIS} fois, {PRIX_SEO} € par mois, {ENGAGEMENT} mois minimum"),
+        ("tarifs.html", "Tarifs", f"{PRIX_SITE} € HT en {NB_FOIS} fois, {PRIX_SEO} € HT par mois, {ENGAGEMENT} mois minimum"),
         ("metiers.html", "Métiers", "liste des métiers accompagnés"),
         ("visibilite-ia.html", "Visibilité dans les IA", "site préparé pour ChatGPT, Gemini et Perplexity, suivi mensuel de ce que disent les IA, sans promesse de citation"),
     ] + [(m["slug"] + ".html", m["carte_titre"], sans_balises(m["description"])) for m in METIERS] + [
