@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "offre-sites-pme",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-I", "-m", "http.server", "8798", "--directory", "C:/Users/chakm/OneDrive/Bureau/OFFRE SITES PME/site"],
+      "port": 8798
+    }
+  ]
+}
