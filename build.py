@@ -9,6 +9,9 @@ import html, json, re
 from datetime import date
 from pathlib import Path
 from metiers import METIERS
+from villes import VILLES
+STATS = json.load(open(Path(__file__).parent / 'stats_villes.json', encoding='utf-8'))
+HUB_VILLES = 'creation-site-internet-bouches-du-rhone.html'
 
 # ---------------------------------------------------------------- réglages
 MARQUE = "Premier Résultat"
@@ -60,6 +63,7 @@ MENU = [
     ("index.html", "Accueil"),
     ("offre.html", "Ce qui est compris"),
     ("metiers.html", "Métiers"),
+    (HUB_VILLES, "Villes"),
     ("visibilite-ia.html", "Visibilité IA"),
     ("tarifs.html", "Tarifs"),
 ]
@@ -69,7 +73,7 @@ def entete(actif):
         f'<a href="{h}"{" aria-current=\"page\"" if h == actif else ""}>{t}</a>' for h, t in MENU
     )
     sous = "".join(f'<a class="sous" href="{m["slug"]}.html">{m["menu"]}</a>' for m in METIERS)
-    mobile = "".join(f'<a href="{h}">{t}</a>' for h, t in MENU[:3]) + sous + '<a href="visibilite-ia.html">Visibilité IA</a><a href="tarifs.html">Tarifs</a><a href="contact.html">Contact</a>'
+    mobile = "".join(f'<a href="{h}">{t}</a>' for h, t in MENU[:3]) + sous + '<a href="' + HUB_VILLES + '">Villes</a>' + "".join(f'<a class="sous" href="{v["slug"]}.html">{v["nom"]}</a>' for v in VILLES) + '<a href="visibilite-ia.html">Visibilité IA</a><a href="tarifs.html">Tarifs</a><a href="contact.html">Contact</a>'
     return f'''<header class="nav">
   <div class="c">
     <a class="logo" href="index.html" aria-label="{MARQUE}, accueil">{MARQUE_HTML}</a>
@@ -83,6 +87,7 @@ def entete(actif):
 
 def pied():
     metiers = "".join(f'<a href="{m["slug"]}.html">{m["menu"]}</a>' for m in METIERS)
+    villes = "".join(f'<a href="{v["slug"]}.html">{v["nom"]}</a>' for v in VILLES)
     return f'''<footer class="pied">
   <div class="c">
     <div class="g">
@@ -90,6 +95,7 @@ def pied():
         <p style="margin-top:12px;max-width:320px">Sites internet et référencement Google pour artisans, commerçants et PME. {PRIX_SITE}&nbsp;€&nbsp;HT le site, payable en {NB_FOIS} fois.</p></div>
       <div><h3>L'offre</h3><nav aria-label="L'offre"><a href="offre.html">Ce qui est compris</a><a href="visibilite-ia.html">Visibilité dans les IA</a><a href="tarifs.html">Tarifs</a><a href="metiers.html">Tous les métiers</a><a href="contact.html">Contact</a></nav></div>
       <div><h3>Métiers</h3><nav aria-label="Métiers">{metiers}</nav></div>
+      <div><h3>Villes</h3><nav aria-label="Villes">{villes}</nav></div>
       <div><h3>Informations</h3><nav aria-label="Informations légales"><a href="mentions-legales.html">Mentions légales</a><a href="confidentialite.html">Confidentialité</a></nav></div>
     </div>
     <div class="bas"><span>© {date.today().year} {MARQUE}</span><span>Site conçu et référencé par nos soins</span></div>
@@ -163,7 +169,7 @@ def page(chemin, titre, description, corps, schemas=(), og_type="website"):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400..600&family=Archivo:wdth,wght@100..125,400..800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=6">
+<link rel="stylesheet" href="assets/site.css?v=7">
 {ld(graph)}
 </head>
 <body>
@@ -338,6 +344,94 @@ def bloc_ia_metier(m):
   </div></div>
 </section>'''
 
+def bloc_villes(titre="Nous créons des sites dans tout le département", exclure=None, alt=False):
+    cartes = "".join(
+        f'<a class="carte" href="{v["slug"]}.html"><h3>Site internet {v["a"]}</h3><p>{STATS[v["nom"]]["total"]} commerces et artisans {v["de"]} sans site connu.</p></a>'
+        for v in VILLES if v["slug"] != exclure)
+    return f"""<section class="sec{' alt' if alt else ''}" id="villes" aria-labelledby="vil-h2">
+  <div class="c"><p class="sur">Bouches-du-Rhône</p><h2 id="vil-h2">{titre}</h2>
+  <p class="chapo">Basés à Marseille, nous travaillons avec les entreprises de tout le département, en rendez-vous ou à distance.</p>
+  <div class="cartes t4">{cartes}</div>
+  <p style="margin-top:20px"><a class="btn b2" href="{HUB_VILLES}">Toutes les villes</a></p></div>
+</section>"""
+
+def metiers_fr(top):
+    return ", ".join(f"{m.lower()} ({n})" for m, n in top)
+
+def page_ville(v):
+    st = STATS[v["nom"]]
+    reperes = "".join(f"<li>{r}</li>" for r in v["reperes"])
+    ctx = "".join(f"<p>{p}</p>" for p in v["contexte"])
+    arr = ""
+    if v.get("stat_extra"):
+        top = [(a.replace("Marseille ", "").replace(" Arrondissement", " arrondissement"), n) for a, n in STATS["_marseille_arr"][:6]]
+        arr = "<p>Les arrondissements qui en comptent le plus : " + ", ".join(f"{a} ({n})" for a, n in top) + ".</p>"
+    faq = v["faq"] + [FAQ_GENERALE[1], FAQ_GENERALE[0]]
+    corps = f"""<section class="hero">
+  <div class="c g">
+    <div>{fil((HUB_VILLES, "Villes"), ("", v["nom"]))}
+      <p class="sur">Bouches-du-Rhône · {v["nom"]}</p>
+      <h1>{v["h1"]}</h1>
+      <p class="chapo">{v["chapo"]}</p>
+      <div class="act"><a class="btn" href="#contact">Demander mon site</a><a class="btn b2" href="#offre">Voir ce qui est compris</a></div>
+    </div>
+    {ticket()}
+  </div>
+</section>
+<section class="sec" aria-labelledby="ctx-h2">
+  <div class="c"><p class="sur">{v["nom"]}</p><h2 id="ctx-h2">Vos clients {v["de"]} vous cherchent sur Google</h2>
+  <div class="texte">{ctx}</div>
+  <h3 style="margin-top:28px">Les secteurs que nous couvrons</h3>
+  <ul class="puces lieux">{reperes}</ul></div>
+</section>
+<section class="sec nuit" aria-labelledby="cst-h2">
+  <div class="c"><p class="sur">Le constat</p><h2 id="cst-h2">{st["total"]} commerces et artisans {v["de"]} sans site internet connu</h2>
+  <div class="texte">
+    <p>Dans la base cartographique OpenStreetMap, {st["total"]} commerces et artisans {v["de"]} n'ont aucun site internet renseigné. Les plus nombreux : {metiers_fr(st["top"])}.</p>
+    {arr}
+    <p>Certains ont un site qui n'est simplement pas référencé, mais beaucoup n'en ont pas, ou seulement une page Facebook. Pour leurs concurrents, c'est une occasion : un site clair et une fiche Google complète suffisent souvent à passer devant. (Relevé du 15 novembre 2026, © contributeurs OpenStreetMap.)</p>
+  </div></div>
+</section>
+{bloc_offres(alt=False)}
+{bloc_metiers(titre="Les métiers que nous accompagnons " + v["a"], alt=True)}
+{bloc_etapes()}
+{bloc_faq(faq, sous="Vos questions sur la création d'un site " + v["a"], alt=True)}
+{bloc_villes(titre="Les autres villes du département", exclure=v["slug"])}
+{bloc_contact(titre="Parlons de votre site " + v["a"], activite="… à " + v["nom"])}"""
+    schemas = [schema_fil((HUB_VILLES, "Villes"), (v["slug"] + ".html", v["nom"])),
+        {"@type": "Service", "name": f"Création de site internet et fiche Google {v['a']}", "serviceType": "Création de site internet et référencement local",
+         "areaServed": {"@type": "City", "name": v["nom"], "containedInPlace": {"@type": "AdministrativeArea", "name": "Bouches-du-Rhône"}},
+         "provider": {"@id": ORGA["@id"]}, "offers": {"@type": "Offer", "price": PRIX_SITE, "priceCurrency": "EUR"}},
+        schema_faq(faq)]
+    return page(v["slug"] + ".html", v["title"], v["description"], corps, schemas)
+
+def hub_villes():
+    faq = [
+        ("Intervenez-vous dans tout le département ?", "Oui. Nous sommes basés à Marseille et travaillons avec les entreprises de toutes les communes des Bouches-du-Rhône, en rendez-vous ou à distance."),
+        ("Ma commune n'est pas dans la liste, est-ce possible ?", "Bien sûr. Les pages ci-dessus présentent les principales villes, mais l'offre est la même partout."),
+        FAQ_GENERALE[0], FAQ_GENERALE[1],
+    ]
+    corps = f"""<section class="hero">
+  <div class="c">{fil(("", "Villes"))}
+    <p class="sur">Bouches-du-Rhône</p>
+    <h1>Création de site internet dans les Bouches-du-Rhône</h1>
+    <p class="chapo">De Marseille à Arles, d'Aix à La Ciotat : un site de 10 pages et une fiche Google pour {PRIX_SITE}&nbsp;€&nbsp;HT, puis un référencement pensé pour votre ville et vos quartiers.</p>
+  </div>
+</section>
+<section class="sec nuit" aria-labelledby="cs-h2">
+  <div class="c"><p class="sur">Le constat</p><h2 id="cs-h2">{STATS["_total13"]} commerces et artisans du département sans site connu</h2>
+  <div class="texte"><p>Dans OpenStreetMap, {STATS["_total13"]} commerces et artisans des Bouches-du-Rhône n'ont aucun site internet renseigné : restaurants, coiffeurs, boulangeries, boutiques, garages, instituts de beauté… Une grande partie de la clientèle locale passe pourtant par Google avant de se déplacer ou d'appeler. (Relevé du 15 novembre 2026, © contributeurs OpenStreetMap.)</p></div></div>
+</section>
+{bloc_villes(titre="Choisissez votre ville")}
+{bloc_offres(alt=True)}
+{bloc_faq(faq, sous="Vos questions")}
+{bloc_contact()}"""
+    schemas = [schema_fil((HUB_VILLES, "Villes")), schema_faq(faq),
+        {"@type": "ItemList", "itemListElement": [{"@type": "ListItem", "position": i, "url": url(v["slug"] + ".html"), "name": f"Création de site internet {v['a']}"} for i, v in enumerate(VILLES, 1)]}]
+    return page(HUB_VILLES, f"Création site internet Bouches-du-Rhône (13) à {PRIX_SITE} € HT | {MARQUE}",
+        f"Création de site internet et fiche Google pour les entreprises des Bouches-du-Rhône : Marseille, Aix, Aubagne, Martigues, Salon, La Ciotat, Arles… {PRIX_SITE} € HT en {NB_FOIS} fois.",
+        corps, schemas)
+
 # ---------------------------------------------------------------- pages
 def accueil():
     baba = "".join(f'<div class="carte"><span class="n">{i:02d}</span><h3>{t}</h3><p>{p}</p></div>' for i, (t, p) in enumerate(BABA, 1))
@@ -377,6 +471,7 @@ def accueil():
 {bloc_offres(alt=False)}
 {bloc_ia_accueil()}
 {bloc_metiers(alt=False)}
+{bloc_villes(alt=True)}
 {bloc_etapes(alt=True)}
 {bloc_faq(FAQ_GENERALE[:7])}
 {bloc_contact()}'''
@@ -660,6 +755,9 @@ def main():
     }
     for m in METIERS:
         fichiers[m["slug"] + ".html"] = page_metier(m)
+    fichiers[HUB_VILLES] = hub_villes()
+    for v in VILLES:
+        fichiers[v["slug"] + ".html"] = page_ville(v)
     for nom, contenu in fichiers.items():
         (OUT / nom).write_text(contenu, encoding="utf-8")
     (OUT / "assets" / "favicon.svg").write_text(FAVICON, encoding="utf-8")
@@ -686,6 +784,8 @@ def main():
         ("metiers.html", "Métiers", "liste des métiers accompagnés"),
         ("visibilite-ia.html", "Visibilité dans les IA", "site préparé pour ChatGPT, Gemini et Perplexity, suivi mensuel de ce que disent les IA, sans promesse de citation"),
     ] + [(m["slug"] + ".html", m["carte_titre"], sans_balises(m["description"])) for m in METIERS] + [
+        (HUB_VILLES, "Villes des Bouches-du-Rhône", "toutes les villes du département")] + [
+        (v["slug"] + ".html", f"Création de site internet {v['a']}", v["description"]) for v in VILLES] + [
         ("contact.html", "Contact", "appel, WhatsApp, formulaire, rendez-vous"),
     ]
     (OUT / "llms.txt").write_text(llms(pages_seo), encoding="utf-8")

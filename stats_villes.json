@@ -1,0 +1,459 @@
+{
+ "Marseille": {
+  "total": 3139,
+  "tel": 361,
+  "top": [
+   [
+    "Restaurant",
+    876
+   ],
+   [
+    "Restauration rapide",
+    368
+   ],
+   [
+    "Coiffeur",
+    287
+   ],
+   [
+    "Boulangerie",
+    257
+   ],
+   [
+    "Café",
+    237
+   ]
+  ]
+ },
+ "Aix-en-Provence": {
+  "total": 923,
+  "tel": 189,
+  "top": [
+   [
+    "Restaurant",
+    173
+   ],
+   [
+    "Boutique de vêtements",
+    129
+   ],
+   [
+    "Coiffeur",
+    105
+   ],
+   [
+    "Restauration rapide",
+    98
+   ],
+   [
+    "Café",
+    53
+   ]
+  ]
+ },
+ "Aubagne": {
+  "total": 211,
+  "tel": 85,
+  "top": [
+   [
+    "Restaurant",
+    42
+   ],
+   [
+    "Restauration rapide",
+    24
+   ],
+   [
+    "Coiffeur",
+    24
+   ],
+   [
+    "Boucherie",
+    15
+   ],
+   [
+    "Boulangerie",
+    14
+   ]
+  ]
+ },
+ "Martigues": {
+  "total": 200,
+  "tel": 35,
+  "top": [
+   [
+    "Restaurant",
+    75
+   ],
+   [
+    "Coiffeur",
+    20
+   ],
+   [
+    "Boutique de vêtements",
+    15
+   ],
+   [
+    "Restauration rapide",
+    14
+   ],
+   [
+    "Boulangerie",
+    13
+   ]
+  ]
+ },
+ "Salon-de-Provence": {
+  "total": 245,
+  "tel": 27,
+  "top": [
+   [
+    "Restaurant",
+    52
+   ],
+   [
+    "Boutique de vêtements",
+    38
+   ],
+   [
+    "Coiffeur",
+    32
+   ],
+   [
+    "Restauration rapide",
+    21
+   ],
+   [
+    "Institut de beauté",
+    13
+   ]
+  ]
+ },
+ "La Ciotat": {
+  "total": 141,
+  "tel": 18,
+  "top": [
+   [
+    "Restaurant",
+    64
+   ],
+   [
+    "Boulangerie",
+    14
+   ],
+   [
+    "Restauration rapide",
+    14
+   ],
+   [
+    "Garage",
+    10
+   ],
+   [
+    "Café",
+    6
+   ]
+  ]
+ },
+ "Vitrolles": {
+  "total": 85,
+  "tel": 3,
+  "top": [
+   [
+    "Restaurant",
+    33
+   ],
+   [
+    "Garage",
+    13
+   ],
+   [
+    "Coiffeur",
+    9
+   ],
+   [
+    "Restauration rapide",
+    7
+   ],
+   [
+    "Boulangerie",
+    6
+   ]
+  ]
+ },
+ "Marignane": {
+  "total": 70,
+  "tel": 8,
+  "top": [
+   [
+    "Restaurant",
+    16
+   ],
+   [
+    "Coiffeur",
+    13
+   ],
+   [
+    "Restauration rapide",
+    9
+   ],
+   [
+    "Boulangerie",
+    7
+   ],
+   [
+    "Garage",
+    6
+   ]
+  ]
+ },
+ "Istres": {
+  "total": 49,
+  "tel": 3,
+  "top": [
+   [
+    "Restaurant",
+    20
+   ],
+   [
+    "Coiffeur",
+    6
+   ],
+   [
+    "Restauration rapide",
+    5
+   ],
+   [
+    "Boutique de vêtements",
+    5
+   ],
+   [
+    "Café",
+    3
+   ]
+  ]
+ },
+ "Arles": {
+  "total": 325,
+  "tel": 81,
+  "top": [
+   [
+    "Restaurant",
+    101
+   ],
+   [
+    "Boutique de vêtements",
+    38
+   ],
+   [
+    "Coiffeur",
+    31
+   ],
+   [
+    "Bar",
+    24
+   ],
+   [
+    "Restauration rapide",
+    19
+   ]
+  ]
+ },
+ "Gardanne": {
+  "total": 103,
+  "tel": 18,
+  "top": [
+   [
+    "Restaurant",
+    18
+   ],
+   [
+    "Restauration rapide",
+    12
+   ],
+   [
+    "Coiffeur",
+    11
+   ],
+   [
+    "Bar",
+    10
+   ],
+   [
+    "Boulangerie",
+    8
+   ]
+  ]
+ },
+ "Miramas": {
+  "total": 89,
+  "tel": 6,
+  "top": [
+   [
+    "Boutique de vêtements",
+    24
+   ],
+   [
+    "Restaurant",
+    15
+   ],
+   [
+    "Restauration rapide",
+    7
+   ],
+   [
+    "Garage",
+    7
+   ],
+   [
+    "Bar",
+    6
+   ]
+  ]
+ },
+ "Cassis": {
+  "total": 104,
+  "tel": 12,
+  "top": [
+   [
+    "Restaurant",
+    48
+   ],
+   [
+    "Boutique de vêtements",
+    13
+   ],
+   [
+    "Bar",
+    8
+   ],
+   [
+    "Restauration rapide",
+    7
+   ],
+   [
+    "Boutique cadeaux",
+    5
+   ]
+  ]
+ },
+ "Allauch": {
+  "total": 33,
+  "tel": 11,
+  "top": [
+   [
+    "Restaurant",
+    9
+   ],
+   [
+    "Boulangerie",
+    4
+   ],
+   [
+    "Coiffeur",
+    3
+   ],
+   [
+    "Fleuriste",
+    2
+   ],
+   [
+    "Café",
+    2
+   ]
+  ]
+ },
+ "Les Pennes-Mirabeau": {
+  "total": 53,
+  "tel": 3,
+  "top": [
+   [
+    "Restaurant",
+    18
+   ],
+   [
+    "Coiffeur",
+    5
+   ],
+   [
+    "Garage",
+    4
+   ],
+   [
+    "Institut de beauté",
+    4
+   ],
+   [
+    "Décoration",
+    3
+   ]
+  ]
+ },
+ "_marseille_arr": [
+  [
+   "Marseille 1er Arrondissement",
+   539
+  ],
+  [
+   "Marseille 6e Arrondissement",
+   473
+  ],
+  [
+   "Marseille 2e Arrondissement",
+   278
+  ],
+  [
+   "Marseille 8e Arrondissement",
+   255
+  ],
+  [
+   "Marseille 15e Arrondissement",
+   199
+  ],
+  [
+   "Marseille 9e Arrondissement",
+   177
+  ],
+  [
+   "Marseille 4e Arrondissement",
+   164
+  ],
+  [
+   "Marseille 7e Arrondissement",
+   146
+  ],
+  [
+   "Marseille 5e Arrondissement",
+   145
+  ],
+  [
+   "Marseille 3e Arrondissement",
+   136
+  ],
+  [
+   "Marseille 11e Arrondissement",
+   122
+  ],
+  [
+   "Marseille 10e Arrondissement",
+   118
+  ],
+  [
+   "Marseille 13e Arrondissement",
+   117
+  ],
+  [
+   "Marseille 12e Arrondissement",
+   99
+  ],
+  [
+   "Marseille 16e Arrondissement",
+   97
+  ],
+  [
+   "Marseille 14e Arrondissement",
+   74
+  ]
+ ],
+ "_total13": 7486
+}

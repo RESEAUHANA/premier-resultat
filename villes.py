@@ -1,0 +1,187 @@
+# -*- coding: utf-8 -*-
+"""Pages villes (Bouches-du-Rhône). Les chiffres viennent de stats_villes.json
+(relevé OpenStreetMap du 15/11/2026 : commerces et artisans sans site renseigné)."""
+
+VILLES = [
+{
+ "slug": "creation-site-internet-marseille", "nom": "Marseille", "de": "de Marseille", "a": "à Marseille",
+ "h1": "Création de site internet à Marseille pour artisans, commerçants et PME",
+ "title": "Création site internet Marseille à 500 € HT | Premier Résultat",
+ "description": "Création de site internet à Marseille : 10 pages, fiche Google créée et remplie, référencement par arrondissement. 500 € HT en 5 fois, basé à Marseille.",
+ "chapo": "Nous sommes basés à Marseille. Nous créons le site de votre entreprise, votre fiche Google, puis nous vous faisons monter dans les recherches de votre arrondissement et de votre quartier.",
+ "contexte": [
+   "À Marseille, on ne cherche pas « un coiffeur » : on cherche un coiffeur à Castellane, un plombier dans le 13e, un restaurant au Vieux-Port ou à la Joliette. Google affiche d'abord les entreprises proches de la personne qui cherche. Pour un commerce marseillais, la bataille se joue donc quartier par quartier, et c'est une bonne nouvelle : vous n'avez pas besoin de battre toute la ville, seulement les concurrents de votre secteur.",
+   "Avec seize arrondissements et des quartiers aux noms bien connus des Marseillais, un site bien construit cite les bons repères : le nom de votre quartier, les arrondissements que vous couvrez, les stations de métro ou de tram proches, le parking. Ce sont ces détails qui rassurent un client et qui aident Google à vous placer sur la carte.",
+ ],
+ "reperes": ["Vieux-Port et Noailles", "Castellane et Préfecture", "La Joliette et Euroméditerranée", "Le Prado et Périer", "La Plaine et Cours Julien", "Saint-Barnabé et les Caillols", "La Valentine", "Les quartiers nord et l'Estaque"],
+ "stat_extra": True,
+ "faq": [
+   ("Êtes-vous vraiment basés à Marseille ?", "Oui. Nous pouvons nous rencontrer à Marseille pour le premier échange si vous le préférez, ou tout faire par téléphone et WhatsApp."),
+   ("Puis-je être trouvé dans plusieurs arrondissements ?", "Oui. La page zone d'intervention liste les arrondissements et quartiers que vous couvrez. Pendant le suivi mensuel, des pages dédiées peuvent être ajoutées pour vos secteurs principaux."),
+   ("Mon commerce est dans un centre commercial, est-ce différent ?", "La fiche Google doit alors indiquer précisément l'emplacement (niveau, entrée, parking) et le site doit reprendre le nom du centre, que les clients tapent souvent dans leur recherche."),
+   ("Faites-vous aussi la fiche Google pour un artisan sans local ?", "Oui. Un artisan qui se déplace déclare une zone d'intervention, sans afficher son adresse personnelle."),
+ ],
+},
+{
+ "slug": "creation-site-internet-aix-en-provence", "nom": "Aix-en-Provence", "de": "d'Aix-en-Provence", "a": "à Aix-en-Provence",
+ "h1": "Création de site internet à Aix-en-Provence",
+ "title": "Création site internet Aix-en-Provence à 500 € HT | Premier Résultat",
+ "description": "Site internet pour commerçants, artisans et indépendants d'Aix-en-Provence : 10 pages, fiche Google comprise, référencement local. 500 € HT en 5 fois.",
+ "chapo": "Centre historique, Pôle d'activités des Milles, Jas de Bouffan ou Luynes : votre site et votre fiche Google sont construits pour les clients aixois qui cherchent près de chez eux.",
+ "contexte": [
+   "Aix-en-Provence attire une clientèle exigeante, nombreuse et souvent pressée : étudiants, cadres, touristes, familles des villages alentour. Dans le centre-ville, les boutiques et restaurants se disputent la même rue ; en périphérie, les artisans et les entreprises des zones d'activités ont besoin d'être trouvés par des clients qui viennent en voiture.",
+   "Un site efficace à Aix parle des bons repères : le cours Mirabeau ou la rue d'Italie pour une boutique, les Milles ou la Duranne pour une entreprise, les communes voisines (Venelles, Éguilles, Bouc-Bel-Air, Le Tholonet) pour un artisan qui se déplace. Et la fiche Google, avec photos et horaires à jour, fait souvent la différence avant même la visite du site.",
+ ],
+ "reperes": ["Centre historique et cours Mirabeau", "Mazarin et quartier Sextius", "Pôle d'activités des Milles", "La Duranne", "Jas de Bouffan", "Luynes et Les Milles", "Puyricard", "Venelles, Éguilles, Bouc-Bel-Air"],
+ "faq": [
+   ("Je suis dans le centre historique, comment me démarquer ?", "Avec une fiche Google très complète (photos récentes, horaires exacts, avis répondus) et des pages qui citent votre rue et vos spécialités. Dans le centre, la proximité compte, mais le choix se fait sur la confiance."),
+   ("Mon entreprise est aux Milles, est-ce utile d'avoir un site ?", "Oui : les clients d'une zone d'activités viennent rarement par hasard. Ils cherchent un service précis, comparent, puis appellent. Un site clair avec plan d'accès et horaires leur évite de se tromper."),
+   ("Couvrez-vous les villages autour d'Aix ?", "Oui. La page zone d'intervention liste toutes les communes où vous travaillez, et le suivi mensuel peut ajouter des pages pour les principales."),
+   ("Peut-on se rencontrer ?", "Oui, à Aix ou à Marseille, ou tout simplement par téléphone ou WhatsApp."),
+ ],
+},
+{
+ "slug": "creation-site-internet-aubagne", "nom": "Aubagne", "de": "d'Aubagne", "a": "à Aubagne",
+ "h1": "Création de site internet à Aubagne",
+ "title": "Création site internet Aubagne à 500 € HT | Premier Résultat",
+ "description": "Site internet pour artisans, commerces et entreprises d'Aubagne et des Paluds : 10 pages, fiche Google comprise, référencement local. 500 € HT en 5 fois.",
+ "chapo": "Du centre-ville à la zone des Paluds, les clients d'Aubagne et de la vallée de l'Huveaune vous cherchent sur Google. Votre site et votre fiche Google leur répondent.",
+ "contexte": [
+   "Aubagne a une particularité : une grande partie de sa clientèle vient de Marseille, de La Penne-sur-Huveaune, de Gémenos, de Roquevaire ou de Cuges-les-Pins. Un artisan ou une entreprise aubagnaise a donc intérêt à être visible bien au-delà de la commune, sur toute la vallée.",
+   "La zone des Paluds, l'une des plus grandes zones d'activités du département, concentre entreprises de services, garages, magasins spécialisés et artisans. Pour ces entreprises, un site avec plan d'accès, horaires et services détaillés évite les appels inutiles et attire les clients qui comparent avant de se déplacer.",
+ ],
+ "reperes": ["Centre-ville et cours Foch", "Zone des Paluds", "Camp Major", "Les Passons", "La Penne-sur-Huveaune", "Gémenos", "Roquevaire", "Cuges-les-Pins"],
+ "faq": [
+   ("Je suis aux Paluds, comment être trouvé ?", "La fiche Google doit indiquer l'adresse exacte dans la zone, avec photos de la façade et de l'entrée. Le site reprend le nom de la zone et les accès, que les clients tapent souvent."),
+   ("Puis-je viser aussi des clients de Marseille ?", "Oui, surtout si vous vous déplacez. La page zone d'intervention et les pages ajoutées pendant le suivi mensuel peuvent cibler l'est marseillais."),
+   ("Combien de temps pour créer mon site ?", "En général deux à trois semaines après notre appel, selon la rapidité avec laquelle vous envoyez photos et informations."),
+   ("Peut-on se voir à Aubagne ?", "Oui, ou à Marseille, ou par téléphone et WhatsApp si vous préférez."),
+ ],
+},
+{
+ "slug": "creation-site-internet-martigues", "nom": "Martigues", "de": "de Martigues", "a": "à Martigues",
+ "h1": "Création de site internet à Martigues",
+ "title": "Création site internet Martigues à 500 € HT | Premier Résultat",
+ "description": "Site internet pour commerçants, restaurants et artisans de Martigues et du pourtour de l'étang de Berre : 10 pages, fiche Google comprise. 500 € HT en 5 fois.",
+ "chapo": "Restaurants du quartier de l'Île, commerces de Ferrières, artisans de Jonquières ou de la Couronne : votre site et votre fiche Google sont pensés pour les clients de Martigues et des alentours.",
+ "contexte": [
+   "Martigues vit au rythme de deux clientèles : les habitants de la ville et du pourtour de l'étang de Berre toute l'année, et les visiteurs attirés par la « Venise provençale » et les plages de la Côte Bleue à la belle saison. Un restaurant ou un commerce a intérêt à parler aux deux : horaires de saison, terrasse, parking, accès depuis Carro ou La Couronne.",
+   "Pour les artisans et entreprises de services, la clientèle s'étend à Port-de-Bouc, Châteauneuf-les-Martigues, Saint-Mitre-les-Remparts ou Sausset-les-Pins. Une page zone d'intervention claire et une fiche Google bien réglée permettent d'apparaître dans toutes ces communes, pas seulement à Martigues.",
+ ],
+ "reperes": ["L'Île et le canal Saint-Sébastien", "Ferrières", "Jonquières", "Carro et La Couronne", "Port-de-Bouc", "Châteauneuf-les-Martigues", "Saint-Mitre-les-Remparts", "Sausset-les-Pins"],
+ "faq": [
+   ("Mon restaurant est surtout fréquenté l'été, est-ce utile ?", "Oui. Les visiteurs préparent souvent leur sortie sur Google avant de venir. Une fiche avec horaires de saison, photos et carte à jour vous apporte ces clients."),
+   ("Je travaille sur toute la Côte Bleue, comment le montrer ?", "Avec une page zone d'intervention qui liste les communes, et une zone déclarée sur votre fiche Google."),
+   ("Le site sera-t-il lisible sur téléphone ?", "Oui, il est conçu d'abord pour le téléphone, puisque c'est là que la plupart de vos clients le consulteront."),
+   ("Peut-on se rencontrer ?", "Oui, ou travailler entièrement par téléphone et WhatsApp."),
+ ],
+},
+{
+ "slug": "creation-site-internet-salon-de-provence", "nom": "Salon-de-Provence", "de": "de Salon-de-Provence", "a": "à Salon-de-Provence",
+ "h1": "Création de site internet à Salon-de-Provence",
+ "title": "Création site internet Salon-de-Provence à 500 € HT | Premier Résultat",
+ "description": "Site internet pour commerces, artisans et indépendants de Salon-de-Provence et des communes voisines : 10 pages, fiche Google comprise. 500 € HT en 5 fois.",
+ "chapo": "Commerces du centre ancien, artisans des zones d'activités, indépendants : votre site et votre fiche Google vous rendent visible à Salon et dans tout le pays salonais.",
+ "contexte": [
+   "Salon-de-Provence est un carrefour : à la croisée de l'A7 et de l'A54, entre Aix, Arles et l'étang de Berre. Sa zone de chalandise dépasse largement la ville, avec Pélissanne, Lançon-Provence, Grans, Eyguières ou La Fare-les-Oliviers. Pour un artisan qui se déplace, c'est un territoire large à couvrir sur Google.",
+   "Dans le centre, autour de l'Empéri et des rues commerçantes, les boutiques et restaurants gagnent à soigner leur fiche Google : photos, horaires, avis. Pour les entreprises installées en périphérie, le site doit surtout donner les accès, les horaires et les services de façon claire.",
+ ],
+ "reperes": ["Centre ancien et château de l'Empéri", "Quartier des Canourgues", "Pélissanne", "Lançon-Provence", "Grans", "Eyguières", "La Fare-les-Oliviers", "Aurons"],
+ "faq": [
+   ("Je travaille dans tout le pays salonais, comment être trouvé partout ?", "La page zone d'intervention liste chaque commune, la fiche Google déclare votre zone, et le suivi mensuel peut ajouter des pages pour les communes les plus importantes pour vous."),
+   ("Est-ce adapté à un indépendant qui travaille seul ?", "Oui, c'est même la cible principale de l'offre : un site sérieux sans y consacrer des milliers d'euros ni des heures de votre temps."),
+   ("Qui écrit les textes ?", "Nous, à partir d'un appel de 15 minutes. Vous relisez et corrigez ce qui ne vous ressemble pas."),
+   ("Peut-on se rencontrer ?", "Oui, ou travailler par téléphone et WhatsApp."),
+ ],
+},
+{
+ "slug": "creation-site-internet-la-ciotat", "nom": "La Ciotat", "de": "de La Ciotat", "a": "à La Ciotat",
+ "h1": "Création de site internet à La Ciotat",
+ "title": "Création site internet La Ciotat à 500 € HT | Premier Résultat",
+ "description": "Site internet pour restaurants, commerces et artisans de La Ciotat, Ceyreste et Saint-Cyr : 10 pages, fiche Google comprise. 500 € HT en 5 fois.",
+ "chapo": "Restaurants du port, commerces du centre, artisans du nautisme ou du bâtiment : votre site et votre fiche Google vous rendent visible auprès des Ciotadens et des visiteurs.",
+ "contexte": [
+   "La Ciotat mêle une vie locale forte et une fréquentation touristique importante, entre le Vieux-Port, les plages et les calanques voisines. Pour un restaurant ou un commerce, la fiche Google est souvent la première chose qu'un visiteur consulte : photos, horaires, carte et avis doivent être impeccables.",
+   "Les chantiers navals ont fait de la ville un pôle du nautisme, avec de nombreux artisans et entreprises spécialisées. Pour eux, comme pour les artisans du bâtiment qui travaillent jusqu'à Ceyreste, Saint-Cyr-sur-Mer ou Cassis, un site clair qui détaille les prestations et la zone d'intervention fait gagner des clients sérieux.",
+ ],
+ "reperes": ["Vieux-Port et centre-ville", "Les plages et le quai François-Mitterrand", "Le chantier naval", "Fontsainte", "Ceyreste", "Saint-Cyr-sur-Mer", "Cassis", "Roquefort-la-Bédoule"],
+ "faq": [
+   ("Mon activité est saisonnière, le référencement vaut-il le coup ?", "Oui, à condition de commencer avant la saison : Google met plusieurs semaines à prendre en compte un nouveau site. Lancer au printemps permet d'être prêt pour l'été."),
+   ("Je suis dans le nautisme, est-ce adapté ?", "Oui. Les pages sont construites autour de vos vraies prestations (entretien, réparation, hivernage, accastillage…) et des recherches de vos clients."),
+   ("Puis-je viser aussi Cassis et Saint-Cyr ?", "Oui, avec une page zone d'intervention et, pendant le suivi, des pages dédiées si besoin."),
+   ("Peut-on se rencontrer ?", "Oui, ou travailler par téléphone et WhatsApp."),
+ ],
+},
+{
+ "slug": "creation-site-internet-vitrolles", "nom": "Vitrolles", "de": "de Vitrolles", "a": "à Vitrolles",
+ "h1": "Création de site internet à Vitrolles",
+ "title": "Création site internet Vitrolles à 500 € HT | Premier Résultat",
+ "description": "Site internet pour entreprises, garages, artisans et commerces de Vitrolles et de sa zone d'activités : 10 pages, fiche Google comprise. 500 € HT en 5 fois.",
+ "chapo": "Entreprises de la zone d'activités, garages, artisans, commerces du centre : votre site et votre fiche Google sont pensés pour les clients de Vitrolles et de l'étang de Berre.",
+ "contexte": [
+   "Vitrolles concentre une très grande zone d'activités, à deux pas de l'aéroport Marseille-Provence et des grands axes. Garages, entreprises de services, grossistes, artisans : beaucoup d'entreprises y travaillent avec des clients qui viennent en voiture, souvent de loin, et qui veulent savoir où se garer et à quelle heure passer.",
+   "Pour ces entreprises, un site simple et complet est un outil commercial : services détaillés, plan d'accès, horaires, contact en un geste. La fiche Google, bien remplie, permet en plus d'apparaître quand un client cherche votre service autour de lui, entre Marignane, Rognac, Les Pennes-Mirabeau et Aix.",
+ ],
+ "reperes": ["Zone d'activités de Vitrolles", "Centre urbain", "Les Pinchinades", "Le Liourat", "Rognac", "Marignane", "Les Pennes-Mirabeau", "Saint-Victoret"],
+ "faq": [
+   ("Je suis un garage de la zone d'activités, que faut-il mettre en avant ?", "Vos prestations une par une, des forfaits indicatifs, les marques entretenues et un plan d'accès précis. Voir aussi notre page garage."),
+   ("Mes clients sont surtout des entreprises, est-ce adapté ?", "Oui. Les textes s'adressent alors à des professionnels : délais, zone couverte, références, devis."),
+   ("Puis-je être trouvé à Marignane et à Rognac ?", "Oui, avec une zone d'intervention déclarée et une page qui liste les communes couvertes."),
+   ("Peut-on se rencontrer ?", "Oui, ou travailler par téléphone et WhatsApp."),
+ ],
+},
+{
+ "slug": "creation-site-internet-marignane", "nom": "Marignane", "de": "de Marignane", "a": "à Marignane",
+ "h1": "Création de site internet à Marignane",
+ "title": "Création site internet Marignane à 500 € HT | Premier Résultat",
+ "description": "Site internet pour commerces, artisans et entreprises de Marignane, Saint-Victoret et Gignac : 10 pages, fiche Google comprise. 500 € HT en 5 fois.",
+ "chapo": "Commerces du centre, artisans, entreprises qui travaillent autour de l'aéroport : votre site et votre fiche Google sont pensés pour les clients de Marignane et des communes voisines.",
+ "contexte": [
+   "Marignane vit avec l'aéroport Marseille-Provence et l'industrie aéronautique, qui font venir chaque jour salariés, sous-traitants et voyageurs. Restaurants, hôtels, loueurs, parkings, artisans : beaucoup d'entreprises locales peuvent capter cette clientèle de passage, à condition d'apparaître au bon moment sur Google.",
+   "Pour les commerces du centre et les artisans, la clientèle se partage entre Marignane, Saint-Victoret, Gignac-la-Nerthe et Châteauneuf-les-Martigues. Une fiche Google complète et un site qui cite ces communes vous rendent visible sur tout ce secteur.",
+ ],
+ "reperes": ["Centre-ville", "Secteur de l'aéroport", "Zone d'activités des Florides", "Saint-Victoret", "Gignac-la-Nerthe", "Châteauneuf-les-Martigues", "Le Rove", "Vitrolles"],
+ "faq": [
+   ("Comment toucher les voyageurs de l'aéroport ?", "Avec une fiche Google qui mentionne la proximité de l'aéroport, des horaires élargis si vous en avez, et des pages qui répondent aux recherches des voyageurs (parking, restauration, hébergement selon votre activité)."),
+   ("Je travaille pour des entreprises de l'aéronautique, est-ce adapté ?", "Oui. Les textes s'adressent alors à des professionnels : savoir-faire, délais, références, habilitations éventuelles."),
+   ("Puis-je viser Saint-Victoret et Gignac ?", "Oui, avec une zone d'intervention déclarée et une page qui liste les communes couvertes."),
+   ("Peut-on se rencontrer ?", "Oui, ou travailler par téléphone et WhatsApp."),
+ ],
+},
+{
+ "slug": "creation-site-internet-istres", "nom": "Istres", "de": "d'Istres", "a": "à Istres",
+ "h1": "Création de site internet à Istres",
+ "title": "Création site internet Istres à 500 € HT | Premier Résultat",
+ "description": "Site internet pour commerces, artisans et indépendants d'Istres, Miramas et Fos-sur-Mer : 10 pages, fiche Google comprise. 500 € HT en 5 fois.",
+ "chapo": "Commerces du centre, artisans, indépendants : votre site et votre fiche Google vous rendent visible à Istres et dans tout l'ouest de l'étang de Berre.",
+ "contexte": [
+   "Istres rayonne sur l'ouest de l'étang de Berre, avec Miramas, Fos-sur-Mer, Saint-Chamas et Grans. Les habitants, nombreux à travailler sur la base aérienne ou dans la zone industrialo-portuaire de Fos, cherchent leurs artisans et leurs commerces sur Google, souvent depuis leur téléphone et en fin de journée.",
+   "Pour un artisan qui se déplace, cela veut dire un territoire étendu à couvrir. Pour un commerce, cela veut dire une fiche Google tenue à jour, avec horaires et photos. Dans les deux cas, peu d'entreprises locales ont un site soigné : la place est à prendre.",
+ ],
+ "reperes": ["Centre-ville et étang de l'Olivier", "Entressen", "Rassuen", "Miramas", "Fos-sur-Mer", "Saint-Chamas", "Grans", "Port-Saint-Louis-du-Rhône"],
+ "faq": [
+   ("Je travaille à Istres, Miramas et Fos, comment être trouvé partout ?", "Avec une zone d'intervention déclarée sur Google et une page qui liste ces communes ; le suivi mensuel peut ajouter des pages dédiées."),
+   ("Mes clients m'appellent surtout le soir, que faire ?", "Le bouton WhatsApp et le formulaire permettent de recevoir leurs demandes à toute heure, sans perdre de client."),
+   ("Est-ce adapté à une petite entreprise ?", "Oui, c'est la cible principale de l'offre."),
+   ("Peut-on se rencontrer ?", "Oui, ou travailler par téléphone et WhatsApp."),
+ ],
+},
+{
+ "slug": "creation-site-internet-arles", "nom": "Arles", "de": "d'Arles", "a": "à Arles",
+ "h1": "Création de site internet à Arles",
+ "title": "Création site internet Arles à 500 € HT | Premier Résultat",
+ "description": "Site internet pour restaurants, commerces, artisans et hébergements d'Arles et de Camargue : 10 pages, fiche Google comprise. 500 € HT en 5 fois.",
+ "chapo": "Restaurants du centre historique, boutiques, artisans, activités en Camargue : votre site et votre fiche Google parlent aux Arlésiens comme aux visiteurs.",
+ "contexte": [
+   "Arles accueille chaque année de nombreux visiteurs, attirés par son patrimoine romain, ses festivals et la Camargue toute proche. Pour un restaurant, une boutique ou une activité de loisirs, ces visiteurs préparent leur journée sur Google : une fiche complète, des photos récentes et un site lisible sur téléphone font la différence.",
+   "La commune est aussi l'une des plus étendues de France, de Salin-de-Giraud à Raphèle-lès-Arles. Pour un artisan, cela veut dire de longs trajets et une clientèle dispersée : une page zone d'intervention précise et une fiche Google bien réglée l'aident à être trouvé dans les hameaux et les communes voisines comme Fontvieille, Tarascon ou Saint-Martin-de-Crau.",
+ ],
+ "reperes": ["Centre historique et arènes", "Quartier de la Roquette", "Trinquetaille", "Griffeuille", "Raphèle-lès-Arles", "Salin-de-Giraud", "Saint-Martin-de-Crau", "Fontvieille et Tarascon"],
+ "faq": [
+   ("Mon activité vit des touristes, que mettre en avant ?", "Des photos qui donnent envie, des horaires exacts selon la saison, une carte ou des tarifs clairs, et des pages qui répondent à ce que les visiteurs cherchent (terrasse, réservation, accès, parking)."),
+   ("Peut-on faire un site en plusieurs langues ?", "Une version anglaise peut être ajoutée ; elle est chiffrée à part, avant tout engagement."),
+   ("Je travaille dans les hameaux et en Camargue, comment être trouvé ?", "Avec une zone d'intervention précise sur Google et une page qui cite chaque secteur couvert."),
+   ("Peut-on se rencontrer ?", "Oui, ou travailler par téléphone et WhatsApp."),
+ ],
+},
+]
