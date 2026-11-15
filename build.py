@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 """Génère le site de l'offre « site à 500 € + SEO à 100 €/mois » dans le dossier site/.
 
 Tout le texte est dans ce fichier et dans metiers.py : on modifie ici, puis
@@ -60,6 +60,7 @@ MENU = [
     ("index.html", "Accueil"),
     ("offre.html", "Ce qui est compris"),
     ("metiers.html", "Métiers"),
+    ("visibilite-ia.html", "Visibilité IA"),
     ("tarifs.html", "Tarifs"),
 ]
 
@@ -68,7 +69,7 @@ def entete(actif):
         f'<a href="{h}"{" aria-current=\"page\"" if h == actif else ""}>{t}</a>' for h, t in MENU
     )
     sous = "".join(f'<a class="sous" href="{m["slug"]}.html">{m["menu"]}</a>' for m in METIERS)
-    mobile = "".join(f'<a href="{h}">{t}</a>' for h, t in MENU[:3]) + sous + '<a href="tarifs.html">Tarifs</a><a href="contact.html">Contact</a>'
+    mobile = "".join(f'<a href="{h}">{t}</a>' for h, t in MENU[:3]) + sous + '<a href="visibilite-ia.html">Visibilité IA</a><a href="tarifs.html">Tarifs</a><a href="contact.html">Contact</a>'
     return f'''<header class="nav">
   <div class="c">
     <a class="logo" href="index.html" aria-label="{MARQUE}, accueil">{MARQUE_HTML}</a>
@@ -87,7 +88,7 @@ def pied():
     <div class="g">
       <div><a class="logo" href="index.html">{MARQUE_HTML}</a>
         <p style="margin-top:12px;max-width:320px">Sites internet et référencement Google pour artisans, commerçants et PME. {PRIX_SITE}&nbsp;€ le site, payable en {NB_FOIS} fois.</p></div>
-      <div><h3>L'offre</h3><nav aria-label="L'offre"><a href="offre.html">Ce qui est compris</a><a href="tarifs.html">Tarifs</a><a href="metiers.html">Tous les métiers</a><a href="contact.html">Contact</a></nav></div>
+      <div><h3>L'offre</h3><nav aria-label="L'offre"><a href="offre.html">Ce qui est compris</a><a href="visibilite-ia.html">Visibilité dans les IA</a><a href="tarifs.html">Tarifs</a><a href="metiers.html">Tous les métiers</a><a href="contact.html">Contact</a></nav></div>
       <div><h3>Métiers</h3><nav aria-label="Métiers">{metiers}</nav></div>
       <div><h3>Informations</h3><nav aria-label="Informations légales"><a href="mentions-legales.html">Mentions légales</a><a href="confidentialite.html">Confidentialité</a></nav></div>
     </div>
@@ -160,7 +161,7 @@ def page(chemin, titre, description, corps, schemas=(), og_type="website"):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400..600&family=Archivo:wdth,wght@100..125,400..800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=2">
+<link rel="stylesheet" href="assets/site.css?v=3">
 {ld(graph)}
 </head>
 <body>
@@ -206,6 +207,7 @@ COMPRIS_SITE = [
     "Formulaire de contact, bouton d'appel et bouton WhatsApp",
     "Bases du référencement : titres, descriptions, données structurées, plan du site",
     "Inscription dans Google Search Console pour que Google découvre le site",
+    "Site préparé pour les IA (ChatGPT, Gemini, Perplexity) : robots autorisés, fichier llms.txt, données structurées",
     "Adresse sécurisée (https), mentions légales et page confidentialité",
     "Le site vous appartient une fois réglé",
 ]
@@ -215,6 +217,7 @@ COMPRIS_SEO = [
     "Inscription et cohérence dans les annuaires utiles (Pages Jaunes, Apple Plans, Bing…)",
     "Corrections techniques pour garder un site rapide et sans erreur",
     "Suivi de vos positions sur les recherches de votre ville",
+    "Visibilité dans les IA : vérification chaque mois de ce que répondent ChatGPT, Gemini et Perplexity à vos clients, et contenus ajustés en conséquence",
     "Un compte rendu mensuel court, en français clair",
 ]
 
@@ -225,7 +228,28 @@ BABA = [
     ("Les réglages que Google attend", "Titres et descriptions uniques, données structurées, plan du site, adresse sécurisée, inscription dans Search Console."),
     ("Des clients qui vous contactent en un geste", "Appel, WhatsApp, formulaire : le contact est visible sur chaque page, sans chercher."),
     ("Les obligations légales", "Mentions légales, page confidentialité, consentement si des outils de mesure sont utilisés. Rien qui puisse vous être reproché."),
+    ("Un site que les IA savent lire", "ChatGPT, Gemini, Perplexity et le mode IA de Google répondent de plus en plus à la place des moteurs. Le site leur est ouvert et décrit votre entreprise dans un format qu'ils comprennent."),
 ]
+
+IA_POINTS = [
+    ("Ouvert aux robots des IA", "Le site autorise explicitement les robots de ChatGPT, Claude, Perplexity, Gemini et Bing à le lire. Beaucoup de sites les bloquent sans le savoir."),
+    ("Une fiche d'identité pour les IA", "Un fichier llms.txt et des données structurées résument qui vous êtes, ce que vous faites, où et à quel prix, sans ambiguïté."),
+    ("Des réponses aux vraies questions", "Les IA citent les pages qui répondent clairement à une question. Vos pages et vos FAQ sont rédigées dans ce sens."),
+    ("Les mêmes informations partout", "Nom, adresse, téléphone, horaires identiques sur le site, la fiche Google et les annuaires : les IA recoupent leurs sources avant de recommander."),
+    ("Des avis qui parlent de vous", "Les IA s'appuient aussi sur vos avis Google. Les encourager et y répondre compte autant pour elles que pour vos clients."),
+    ("Un suivi chaque mois", "Pendant le suivi mensuel, nous posons aux principales IA les questions que se posent vos clients, et nous notons si votre entreprise apparaît."),
+]
+
+IA_Q = {
+    "site-internet-plombier": "Quel plombier appeler pour une fuite à Marseille ?",
+    "site-internet-electricien": "Qui peut installer une borne de recharge chez moi à Marseille ?",
+    "site-internet-restaurant": "Un bon restaurant italien avec terrasse à Marseille ?",
+    "creation-site-e-commerce": "Où acheter des bougies artisanales en ligne ?",
+    "site-internet-coiffeur": "Un coiffeur spécialiste des cheveux bouclés à Marseille ?",
+    "site-internet-garage-mecanicien": "Un garage honnête pour changer mes plaquettes à Marseille ?",
+    "site-internet-sophrologue": "Un sophrologue pour le stress au travail à Marseille ?",
+    "site-internet-masseur": "Où offrir un massage en carte cadeau à Marseille ?",
+}
 
 ETAPES = [
     ("Un appel de 15 minutes", "Vous expliquez votre métier, votre zone et ce que vous voulez mettre en avant."),
@@ -241,6 +265,7 @@ FAQ_GENERALE = [
     (f"Pourquoi un engagement de {ENGAGEMENT} mois pour le référencement ?", f"Google met plusieurs mois à prendre en compte le travail fait sur un site. En dessous de {ENGAGEMENT} mois, on ne peut pas juger du résultat."),
     ("Garantissez-vous la première place sur Google ?", "Non, et personne ne peut le garantir honnêtement. Ce qui est garanti, c'est le travail fait chaque mois et un compte rendu clair de vos positions."),
     ("Y a-t-il des frais en plus ?", "Seulement le nom de domaine (l'adresse de votre site), réservé à votre nom, qui coûte en général une dizaine d'euros par an. Tout autre frais éventuel est annoncé avant de commencer."),
+    ("Pouvez-vous me faire recommander par ChatGPT ?", "Personne ne peut garantir qu'une IA vous citera. Ce que nous faisons : rendre votre site lisible par les IA, donner des informations claires et cohérentes partout, répondre aux questions de vos clients, et vérifier chaque mois ce que les IA disent de vous. <a href=\"visibilite-ia.html\">En savoir plus</a>."),
     ("J'ai déjà un site, pouvez-vous le reprendre ?", "Oui. Selon son état, il est refait dans le cadre de l'offre ou simplement suivi en référencement."),
     ("En combien de temps le site est-il en ligne ?", "Comptez en général deux à trois semaines après l'appel, selon la rapidité avec laquelle vous envoyez photos et informations."),
 ]
@@ -249,7 +274,7 @@ def ticket():
     return f'''<aside class="ticket" aria-label="Résumé des prix">
   <p class="tt">L'offre en deux lignes</p>
   <div class="l"><div>Site + fiche Google<small>jusqu'à {PAGES_MAX} pages · {NB_FOIS} × {PRIX_SITE // NB_FOIS} €</small></div><b>{PRIX_SITE} €</b></div>
-  <div class="l"><div>Référencement Google<small>suivi mensuel · {ENGAGEMENT} mois minimum</small></div><b>{PRIX_SEO} €<i> /mois</i></b></div>
+  <div class="l"><div>Référencement Google et IA<small>suivi mensuel · {ENGAGEMENT} mois minimum</small></div><b>{PRIX_SEO} €<i> /mois</i></b></div>
   <small style="margin-top:8px">Prix annoncé avant de commencer, sans devis à rallonge.</small>
 </aside>'''
 
@@ -265,7 +290,7 @@ def bloc_offres(alt=True):
       <article class="offre"><span class="et">Étape 1</span><h3>Votre site et votre fiche Google</h3>
         <p class="px">{PRIX_SITE} €</p><p class="mod">Payable en {NB_FOIS} fois : {NB_FOIS} × {PRIX_SITE // NB_FOIS} €, sans frais</p>
         <ul class="liste">{l1}</ul><a class="btn b2" href="contact.html">Je veux mon site</a></article>
-      <article class="offre v"><span class="et">Étape 2</span><h3>Votre référencement Google</h3>
+      <article class="offre v"><span class="et">Étape 2</span><h3>Votre référencement Google et IA</h3>
         <p class="px">{PRIX_SEO} € <small>/ mois</small></p><p class="mod">Engagement de {ENGAGEMENT} mois, le temps que Google réagisse</p>
         <ul class="liste">{l2}</ul><a class="btn" href="contact.html">Je veux être trouvé</a></article>
     </div>
@@ -289,6 +314,28 @@ def bloc_metiers(titre="Une page pensée pour chaque métier", exclure=None, alt
   <div class="cartes t4">{cartes}</div></div>
 </section>'''
 
+def bloc_ia_accueil():
+    cartes = "".join(f'<div class="carte"><h3>{t}</h3><p>{p}</p></div>' for t, p in IA_POINTS[:3])
+    return f'''<section class="sec nuit" id="ia" aria-labelledby="ia-h2">
+  <div class="c">
+    <p class="sur">Google, et maintenant les IA</p>
+    <h2 id="ia-h2">Vos clients posent aussi la question à ChatGPT</h2>
+    <p class="chapo">« Quel plombier appeler à Marseille ? », « un bon coiffeur pour cheveux bouclés près de chez moi ? » : de plus en plus de gens demandent directement à une IA. Elle répond avec quelques noms. Votre site est préparé pour qu'elle puisse vous connaître.</p>
+    <div class="cartes t3">{cartes}</div>
+    <div class="act" style="margin-top:26px;display:flex;flex-wrap:wrap;gap:12px"><a class="btn b2" href="visibilite-ia.html">Comment ça marche</a></div>
+  </div>
+</section>'''
+
+def bloc_ia_metier(m):
+    q = IA_Q.get(m["slug"], "")
+    return f'''<section class="sec nuit" aria-labelledby="iam-h2">
+  <div class="c"><p class="sur">Visibilité dans les IA</p><h2 id="iam-h2">Quand un client demande à ChatGPT</h2>
+  <div class="texte">
+    <p>De plus en plus de clients ne tapent plus seulement des mots-clés : ils posent une question complète à une IA, comme <strong style="color:#fff">« {q} »</strong>. L'IA répond avec quelques noms, puisés dans les sites, les fiches Google et les avis qu'elle trouve.</p>
+    <p>Votre site est ouvert aux robots des IA, décrit votre activité dans un format qu'elles comprennent, et répond aux questions de vos clients. Pendant le suivi mensuel, nous vérifions ce que les principales IA répondent sur votre métier dans votre ville. Personne ne peut garantir d'être cité, mais un site clair et cohérent met toutes les chances de votre côté. <a href="visibilite-ia.html" style="color:#f5a58d">En savoir plus</a>.</p>
+  </div></div>
+</section>'''
+
 # ---------------------------------------------------------------- pages
 def accueil():
     baba = "".join(f'<div class="carte"><span class="n">{i:02d}</span><h3>{t}</h3><p>{p}</p></div>' for i, (t, p) in enumerate(BABA, 1))
@@ -297,7 +344,7 @@ def accueil():
     <div>
       <p class="sur">Artisans, commerçants, indépendants, PME</p>
       <h1>Création de site internet pour PME à {PRIX_SITE}&nbsp;€, fiche Google comprise</h1>
-      <p class="chapo">Un vrai site de {PAGES_MAX} pages maximum, rédigé et référencé, avec votre fiche Google créée et remplie. Payable en {NB_FOIS} fois. Ensuite, {PRIX_SEO}&nbsp;€ par mois pour monter dans les recherches de votre ville.</p>
+      <p class="chapo">Un vrai site de {PAGES_MAX} pages maximum, rédigé et référencé, avec votre fiche Google créée et remplie. Payable en {NB_FOIS} fois. Ensuite, {PRIX_SEO}&nbsp;€ par mois pour monter dans les recherches de votre ville, sur Google et dans les IA comme ChatGPT.</p>
       <div class="act"><a class="btn" href="contact.html">Demander mon site</a><a class="btn b2" href="offre.html">Voir ce qui est compris</a></div>
       <ul class="coches"><li>Prix fixe annoncé avant de commencer</li><li>Le site vous appartient</li><li>Pas de jargon</li></ul>
     </div>
@@ -326,13 +373,14 @@ def accueil():
 </section>
 
 {bloc_offres(alt=False)}
-{bloc_metiers(alt=True)}
-{bloc_etapes()}
-{bloc_faq(FAQ_GENERALE[:6], alt=True)}
+{bloc_ia_accueil()}
+{bloc_metiers(alt=False)}
+{bloc_etapes(alt=True)}
+{bloc_faq(FAQ_GENERALE[:7])}
 {bloc_contact()}'''
     schemas = [
         {"@type": "WebSite", "@id": SITE_URL + "/#site", "url": SITE_URL + "/", "name": MARQUE, "inLanguage": "fr-FR", "publisher": {"@id": ORGA["@id"]}},
-        schema_faq(FAQ_GENERALE[:6]),
+        schema_faq(FAQ_GENERALE[:7]),
     ]
     return page("index.html",
         f"Création de site internet PME à {PRIX_SITE} €, fiche Google comprise | {MARQUE}",
@@ -483,6 +531,7 @@ def page_metier(m):
 </section>
 
 {prix.replace("sec alt", "sec") if "prix_html" not in m else m["prix_html"]}
+{bloc_ia_metier(m)}
 {bloc_faq(m["faq"], sous=m["faq_titre"], alt=True)}
 {bloc_metiers(titre="Les autres métiers", exclure=m["slug"])}
 {bloc_contact(titre=m["contact_titre"], activite=m["activite"])}'''
@@ -494,6 +543,46 @@ def page_metier(m):
         schema_faq(m["faq"]),
     ]
     return page(m["slug"] + ".html", m["title"], m["description"], corps, schemas)
+
+def visibilite_ia():
+    cartes = "".join(f'<div class="carte"><span class="n">{i:02d}</span><h3>{t}</h3><p>{p}</p></div>' for i, (t, p) in enumerate(IA_POINTS, 1))
+    faq = [
+        ("Qu'est-ce que le référencement dans les IA ?", "C'est le travail qui aide les assistants comme ChatGPT, Gemini, Perplexity ou le mode IA de Google à comprendre votre entreprise et à la proposer quand on leur pose une question sur votre métier. On parle aussi de GEO."),
+        ("Est-ce différent du référencement Google ?", "C'est complémentaire. Les IA s'appuient en grande partie sur les mêmes sources que Google : votre site, votre fiche Google, vos avis, les annuaires. Un bon référencement Google est la base, auquel on ajoute ce que les IA attendent en plus."),
+        ("Pouvez-vous garantir que ChatGPT me recommandera ?", "Non. Personne ne contrôle les réponses d'une IA, et elles varient d'une question à l'autre. Ce que nous garantissons, c'est le travail fait et un suivi honnête de ce que les IA disent de vous."),
+        ("Est-ce compris dans le prix ?", f"Oui. La préparation du site pour les IA est comprise dans le site à {PRIX_SITE} €. Le suivi mensuel des IA fait partie du référencement à {PRIX_SEO} € par mois."),
+        ("Les IA lisent-elles vraiment les petits sites ?", "Oui, quand elles cherchent des informations locales, elles consultent les sites et les fiches des entreprises. Encore faut-il que le site ne bloque pas leurs robots et que les informations soient claires."),
+    ]
+    corps = f'''<section class="hero">
+  <div class="c">{fil(("", "Visibilité IA"))}
+    <p class="sur">Visibilité dans les IA</p>
+    <h1>Référencement dans ChatGPT et les IA pour petites entreprises</h1>
+    <p class="chapo">Vos clients ne cherchent plus seulement sur Google : ils demandent aussi à ChatGPT, Gemini ou Perplexity. Votre site et votre fiche Google sont préparés pour que ces IA puissent vous connaître et vous proposer.</p>
+    <div class="act"><a class="btn" href="contact.html">Demander mon site</a><a class="btn b2" href="tarifs.html">Voir les tarifs</a></div>
+  </div>
+</section>
+<section class="sec" aria-labelledby="pq-h2">
+  <div class="c"><p class="sur">Pourquoi maintenant</p><h2 id="pq-h2">La question ne se tape plus, elle se pose</h2>
+  <div class="texte">
+    <p>Sur Google, on tape « plombier Marseille ». Dans une IA, on écrit une vraie phrase : « j'ai une fuite sous l'évier, qui appeler ce soir à Marseille ? ». L'IA ne montre pas dix liens : elle donne quelques noms, avec une explication. Être dans cette courte liste devient aussi important que d'être en première page.</p>
+    <p>Pour choisir, les IA recoupent ce qu'elles trouvent : votre site, votre fiche Google, vos avis, les annuaires. Une entreprise dont les informations sont claires, complètes et identiques partout a beaucoup plus de chances d'être citée qu'une entreprise au site vide ou contradictoire.</p>
+  </div></div>
+</section>
+<section class="sec alt" aria-labelledby="cf-h2">
+  <div class="c"><p class="sur">Ce que nous faisons</p><h2 id="cf-h2">Six chantiers pour être connu des IA</h2><div class="cartes t3">{cartes}</div></div>
+</section>
+<section class="sec" aria-labelledby="hn-h2">
+  <div class="c"><p class="sur">Honnêteté</p><h2 id="hn-h2">Ce que personne ne peut promettre</h2>
+  <div class="texte"><p>Les réponses des IA changent selon la question, le moment et l'outil utilisé. Méfiez-vous de qui vous garantit d'être « recommandé par ChatGPT ». Nous vous promettons un travail sérieux et un compte rendu clair chaque mois, pas un résultat que personne ne contrôle.</p></div></div>
+</section>
+{bloc_offres(alt=True)}
+{bloc_faq(faq, sous="Vos questions sur la visibilité dans les IA")}
+{bloc_contact()}'''
+    schemas = [schema_fil(("visibilite-ia.html", "Visibilité IA")), schema_faq(faq),
+               {"@type": "Service", "name": "Visibilité dans les IA (ChatGPT, Gemini, Perplexity) pour petites entreprises", "serviceType": "Référencement dans les moteurs de réponse IA (GEO)", "provider": {"@id": ORGA["@id"]}, "areaServed": "France"}]
+    return page("visibilite-ia.html", f"Référencement ChatGPT et IA pour petites entreprises | {MARQUE}",
+        "Être proposé par ChatGPT, Gemini et Perplexity : site ouvert aux IA, informations cohérentes, suivi mensuel. Compris dans l'offre, sans promesse impossible.",
+        corps, schemas)
 
 def contact():
     corps = f'''<section class="hero">
@@ -541,7 +630,7 @@ FAVICON = '''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect w
 
 def llms(pages_seo):
     lignes = [f"# {MARQUE}", "",
-        f"> Création de sites internet pour artisans, commerçants, indépendants et PME en France : site jusqu'à {PAGES_MAX} pages et fiche Google créée et remplie pour {PRIX_SITE} €, payable en {NB_FOIS} fois. Référencement Google à {PRIX_SEO} € par mois, {ENGAGEMENT} mois minimum, facultatif.",
+        f"> Création de sites internet pour artisans, commerçants, indépendants et PME en France : site jusqu'à {PAGES_MAX} pages et fiche Google créée et remplie pour {PRIX_SITE} €, payable en {NB_FOIS} fois. Référencement Google et visibilité dans les IA (ChatGPT, Gemini, Perplexity) à {PRIX_SEO} € par mois, {ENGAGEMENT} mois minimum, facultatif.",
         "", "Le site appartient au client une fois réglé. Aucune promesse de première place sur Google. Seul frais en plus : le nom de domaine, à son nom.", "", "## Pages", ""]
     for chemin, titre, desc in pages_seo:
         lignes.append(f"- [{titre}]({url(chemin)}) : {desc}")
@@ -555,6 +644,7 @@ def main():
         "offre.html": offre(),
         "tarifs.html": tarifs(),
         "metiers.html": hub_metiers(),
+        "visibilite-ia.html": visibilite_ia(),
         "contact.html": contact(),
         "mentions-legales.html": legal("mentions-legales.html", "Mentions légales", "Mentions légales", MENTIONS),
         "confidentialite.html": legal("confidentialite.html", "Politique de confidentialité", "Confidentialité", CONFIDENTIALITE),
@@ -586,6 +676,7 @@ def main():
         ("offre.html", "Ce qui est compris", f"détail du site jusqu'à {PAGES_MAX} pages, de la fiche Google et du suivi mensuel"),
         ("tarifs.html", "Tarifs", f"{PRIX_SITE} € en {NB_FOIS} fois, {PRIX_SEO} € par mois, {ENGAGEMENT} mois minimum"),
         ("metiers.html", "Métiers", "liste des métiers accompagnés"),
+        ("visibilite-ia.html", "Visibilité dans les IA", "site préparé pour ChatGPT, Gemini et Perplexity, suivi mensuel de ce que disent les IA, sans promesse de citation"),
     ] + [(m["slug"] + ".html", m["carte_titre"], sans_balises(m["description"])) for m in METIERS] + [
         ("contact.html", "Contact", "appel, WhatsApp, formulaire, rendez-vous"),
     ]
