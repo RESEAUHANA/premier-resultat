@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """Génère le site de l'offre « site à 500 € + SEO à 100 €/mois » dans le dossier site/.
 
 Tout le texte est dans ce fichier et dans metiers.py : on modifie ici, puis
@@ -11,9 +11,9 @@ from pathlib import Path
 from metiers import METIERS
 
 # ---------------------------------------------------------------- réglages
-MARQUE = "Première Page"          # nom provisoire, à remplacer par le nom choisi
-MARQUE_HTML = 'Première<span>Page</span>'
-SITE_URL = "https://www.premierepage.fr"   # domaine provisoire, à remplacer avant mise en ligne
+MARQUE = "Premier Résultat"
+MARQUE_HTML = 'Premier<span>Résultat</span>'
+SITE_URL = "https://premierresultat.fr"   # domaine à réserver
 VILLE = "Marseille"
 CONTACT = {
     "telephone": "",     # ex. "06 12 34 56 78"
@@ -161,7 +161,7 @@ def page(chemin, titre, description, corps, schemas=(), og_type="website"):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400..600&family=Archivo:wdth,wght@100..125,400..800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=3">
+<link rel="stylesheet" href="assets/site.css?v=4">
 {ld(graph)}
 </head>
 <body>
@@ -626,7 +626,7 @@ def page_404():
     return page("404.html", f"Page introuvable | {MARQUE}", "Page introuvable.", corps).replace(
         '<meta name="robots" content="index, follow, max-image-preview:large">', '<meta name="robots" content="noindex">')
 
-FAVICON = '''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#101623"/><text x="32" y="44" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="34" fill="#e4572e">P</text></svg>'''
+FAVICON = '''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#101623"/><text x="32" y="44" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="38" fill="#e4572e">1</text></svg>'''
 
 def llms(pages_seo):
     lignes = [f"# {MARQUE}", "",

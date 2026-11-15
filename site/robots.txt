@@ -28,4 +28,4 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
-Sitemap: https://www.premierepage.fr/sitemap.xml
+Sitemap: https://premierresultat.fr/sitemap.xml
